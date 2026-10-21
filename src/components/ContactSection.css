@@ -72,33 +72,123 @@
   pointer-events: none;
 }
 
-.cyberdeck-status-video-wrap {
+/* ================= Top-Left Status Header ================= */
+.cyberdeck-status-bar {
   position: absolute;
   top: 43px;
-  left: 38px;
-  width: 370px;
-  height: 44px;
-  border-radius: 22px;
+  left: 36px;
+  width: 350px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+/* Status Pill: Inset Pill Container with border-radius: 9999px & Subtle Inner Shadow */
+.status-pill {
+  position: relative;
+  height: 34px;
+  width: 288px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #090a0d 0%, #121317 100%);
+  border: 1px solid rgba(0, 0, 0, 0.85);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.95),
+    inset 0 1px 2px rgba(0, 0, 0, 0.9),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.08),
+    0 1px 1px rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 18px;
+  user-select: none;
   overflow: hidden;
-  z-index: 3;
+  flex-shrink: 0;
 }
 
-.cyberdeck-status-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.status-pill-text {
+  font-family: 'Pixel Operator', var(--font-pixel), 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #1ad990;
+  text-shadow:
+    0 0 4px rgba(26, 217, 144, 0.6),
+    0 0 10px rgba(26, 217, 144, 0.3);
+  white-space: nowrap;
+}
+
+.status-pill-led {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #1ad990;
+  box-shadow:
+    0 0 4px #1ad990,
+    0 0 10px rgba(26, 217, 144, 0.9),
+    0 0 16px rgba(26, 217, 144, 0.5),
+    inset 0 1px 1px #ffffff;
+  animation: ledPulse 2.8s ease-in-out infinite;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+@keyframes ledPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow:
+      0 0 4px #1ad990,
+      0 0 10px rgba(26, 217, 144, 0.9),
+      0 0 16px rgba(26, 217, 144, 0.5);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(0.92);
+    box-shadow:
+      0 0 2px #1ad990,
+      0 0 6px rgba(26, 217, 144, 0.5),
+      0 0 10px rgba(26, 217, 144, 0.2);
+  }
+}
+
+/* TC Logo Badge: Circular Container with border-radius: 50% */
+.status-logo-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #24252a 0%, #15161a 70%, #0d0e11 100%);
+  border: 1px solid rgba(0, 0, 0, 0.85);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.95),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.12),
+    0 1px 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(220, 225, 235, 0.7);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.status-logo-badge:hover {
+  color: #ffffff;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.9),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.22),
+    0 0 10px rgba(26, 217, 144, 0.4);
+}
+
+.tc-monogram-svg {
+  width: 17px;
+  height: 17px;
   display: block;
-}
-
-.cyberdeck-status-bezel {
-  position: absolute;
-  top: 43px;
-  left: 0;
-  width: 425px;
-  height: 45px;
-  object-fit: cover;
-  pointer-events: none;
-  z-index: 1;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8));
 }
 
 /* 9 Mechanical Keys with Framer Coordinates */

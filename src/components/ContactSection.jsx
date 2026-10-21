@@ -164,24 +164,27 @@ export default function ContactSection() {
               className="cyberdeck-bg-img"
             />
 
-            {/* Status Bar Video: Available For Freelance */}
-            <div className="cyberdeck-status-video-wrap">
-              <video
-                src="/assets/NTPQwD8OtB7Vx4FSKblgSSFTTL8.mp4"
-                loop
-                autoPlay
-                muted
-                playsInline
-                className="cyberdeck-status-video"
-              />
-            </div>
+            {/* Top-Left Status Header */}
+            <div className="cyberdeck-status-bar">
+              {/* Inset Status Pill */}
+              <div className="status-pill">
+                <span className="status-pill-text">Available For Freelance</span>
+                <span className="status-pill-led" />
+              </div>
 
-            {/* Status Bar Bezel Overlay */}
-            <img
-              src="/assets/29_FhX5JDdQ5h9hI3ExcyblKv0GpY.png"
-              alt="Status bar bezel"
-              className="cyberdeck-status-bezel"
-            />
+              {/* TC Logo Badge */}
+              <div className="status-logo-badge" title="Thibaut Crépelle">
+                <svg className="tc-monogram-svg" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5.5 7.5h13M12 7.5v9M17 12a4.5 4.5 0 0 1-4.5 4.5 4.5 4.5 0 0 1-4.5-4.5"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
 
             {/* 9 Mechanical Keys positioned with exact Framer coordinates */}
             {KEYS.map((k) => (
