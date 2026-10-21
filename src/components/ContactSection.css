@@ -1,215 +1,138 @@
 /* ==========================================================================
-   IN-FLOW DOCKED RETRO KEYBOARD CONSOLE FOOTER
+   1:1 EXACT REPLICA RETRO KEYBOARD CONSOLE FOOTER (FRAMER PARITY)
    ========================================================================== */
 
 .cyberdeck-inflow-footer {
   position: relative;
   width: 100%;
-  height: 325px;
-  margin-top: 100px;
+  min-width: 922px;
+  height: 360px;
+  margin-top: 120px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   overflow: visible;
   z-index: 10;
+  order: 5;
 }
 
-/* Background Ambient Glow */
+/* Background Ambient Glow: Authentic Framer radial gradient */
 .cyberdeck-ambient-glow {
   position: absolute;
+  top: -280px;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 520px;
-  background: radial-gradient(circle at bottom, rgba(0, 255, 100, 0.15), transparent 70%);
+  background: radial-gradient(
+    67% 54% at 50% 76.2%,
+    #e3ffcc 32.8829%,
+    #7dfaa594 47.5946%,
+    #25c4875e 73.4414%,
+    #04540f00 100%
+  );
+  overflow: hidden;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Crop wrapper so bottom portion of console body bleeds past bottom edge */
+/* Main Console Body Wrapper */
 .cyberdeck-body-wrapper {
   position: relative;
   width: 100%;
-  height: 325px;
-  overflow: hidden;
+  height: 360px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   z-index: 1;
 }
 
-/* Main Console Housing: Spans 100% horizontally, bottom portion bleeds past edge */
+/* Main Console Housing: Spans 100% horizontally */
 .cyberdeck-body {
   width: 100%;
   height: 360px;
   position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  transform: translateY(35px); /* Lets bottom portion bleed past bottom edge */
-  transform-origin: bottom center;
+  flex-flow: row;
+  place-content: center space-between;
+  align-items: center;
   overflow: visible;
   background-color: transparent;
 }
 
-/* Left Keypad Section: Anchored to Bottom Left */
+/* ================= Left Mechanical Keypad Section ================= */
 .cyberdeck-left {
   width: 425px;
   height: 360px;
   position: relative;
-  flex-shrink: 0;
+  flex: none;
   user-select: none;
+  -webkit-user-select: none;
+  overflow: visible;
 }
 
 .cyberdeck-bg-img {
   width: 100%;
-  height: 100%;
+  height: 360px;
   position: absolute;
   top: 0;
   left: 0;
   object-fit: cover;
   pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-/* ================= Top-Left Status Header ================= */
-.cyberdeck-status-bar {
+/* Status Bar Video Container (Authentic Animated Video Display) */
+.cyberdeck-status-video-wrap {
   position: absolute;
   top: 43px;
-  left: 36px;
-  width: 350px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  z-index: 5;
+  left: 38px;
+  width: 370px;
+  height: 44px;
+  aspect-ratio: 8.40909;
+  overflow: hidden;
+  z-index: 2;
   pointer-events: auto;
 }
 
-/* Status Pill: Inset Pill Container with border-radius: 9999px & Subtle Inner Shadow */
-.status-pill {
-  position: relative;
-  height: 34px;
-  width: 288px;
-  border-radius: 9999px;
-  background: linear-gradient(180deg, #090a0d 0%, #121317 100%);
-  border: 1px solid rgba(0, 0, 0, 0.85);
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.95),
-    inset 0 1px 2px rgba(0, 0, 0, 0.9),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.08),
-    0 1px 1px rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px 0 18px;
-  user-select: none;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.status-pill-text {
-  font-family: 'Pixel Operator', var(--font-pixel), 'Courier New', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: #1ad990;
-  text-shadow:
-    0 0 4px rgba(26, 217, 144, 0.6),
-    0 0 10px rgba(26, 217, 144, 0.3);
-  white-space: nowrap;
-}
-
-.status-pill-led {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #1ad990;
-  box-shadow:
-    0 0 4px #1ad990,
-    0 0 10px rgba(26, 217, 144, 0.9),
-    0 0 16px rgba(26, 217, 144, 0.5),
-    inset 0 1px 1px #ffffff;
-  animation: ledPulse 2.8s ease-in-out infinite;
-  flex-shrink: 0;
-  margin-left: 8px;
-}
-
-@keyframes ledPulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-    box-shadow:
-      0 0 4px #1ad990,
-      0 0 10px rgba(26, 217, 144, 0.9),
-      0 0 16px rgba(26, 217, 144, 0.5);
-  }
-  50% {
-    opacity: 0.65;
-    transform: scale(0.92);
-    box-shadow:
-      0 0 2px #1ad990,
-      0 0 6px rgba(26, 217, 144, 0.5),
-      0 0 10px rgba(26, 217, 144, 0.2);
-  }
-}
-
-/* TC Logo Badge: Circular Container with border-radius: 50% */
-.status-logo-badge {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #24252a 0%, #15161a 70%, #0d0e11 100%);
-  border: 1px solid rgba(0, 0, 0, 0.85);
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.95),
-    inset 0 -1px 2px rgba(255, 255, 255, 0.12),
-    0 1px 1px rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(220, 225, 235, 0.7);
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  user-select: none;
-}
-
-.status-logo-badge:hover {
-  color: #ffffff;
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.9),
-    inset 0 -1px 2px rgba(255, 255, 255, 0.22),
-    0 0 10px rgba(26, 217, 144, 0.4);
-}
-
-.tc-monogram-svg {
-  width: 17px;
-  height: 17px;
+.cyberdeck-status-video {
+  width: 100%;
+  height: 100%;
   display: block;
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8));
+  object-fit: cover;
+  background-color: transparent;
+  cursor: auto;
 }
 
-/* 9 Mechanical Keys with Framer Coordinates */
+/* 9 Mechanical Keys with Authentic Framer Coordinates & 12px Hover Depression */
 .cyberdeck-key {
   position: absolute;
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  z-index: 4;
+  z-index: 2;
   outline: none;
-  transition: transform 0.08s cubic-bezier(0.2, 0.8, 0.4, 1);
+  overflow: visible;
 }
 
-.cyberdeck-key:hover {
-  transform: translateY(8px);
+.cyberdeck-keycap-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transition: top 0.08s cubic-bezier(0.2, 0.8, 0.4, 1);
 }
 
-.cyberdeck-key:active,
-.cyberdeck-key.pressed {
-  transform: translateY(12px);
+.cyberdeck-key:hover .cyberdeck-keycap-inner {
+  top: 12px;
+}
+
+.cyberdeck-key:active .cyberdeck-keycap-inner,
+.cyberdeck-key.pressed .cyberdeck-keycap-inner {
+  top: 14px;
 }
 
 .cyberdeck-keycap-img {
@@ -217,18 +140,64 @@
   height: 100%;
   display: block;
   user-select: none;
+  -webkit-user-select: none;
   pointer-events: none;
-  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.5));
+  object-fit: cover;
 }
 
-/* Middle Speaker Grill: Flexes to bridge left keypad & right CRT display */
+/* Email Copied Tooltip */
+.email-copied-tooltip {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 6px 12px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Left Housing Bottom Lip: Sits on top of keys (z-index: 5) */
+.cyberdeck-left-bottom-lip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 425px;
+  height: 45px;
+  z-index: 5;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.cyberdeck-lip-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ================= Center Speaker Grill Section ================= */
 .cyberdeck-middle {
   flex: 1 0 0;
   width: 1px;
   height: 360px;
   position: relative;
   overflow: visible;
-  z-index: 2;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  place-content: center;
 }
 
 .cyberdeck-middle-img {
@@ -237,18 +206,22 @@
   object-fit: fill;
   display: block;
   user-select: none;
+  -webkit-user-select: none;
   pointer-events: none;
 }
 
-/* Right Oscilloscope Panel: Anchored to Bottom Right */
+/* ================= Right Oscilloscope Panel Section ================= */
 .cyberdeck-right {
   width: 425px;
   height: 360px;
   position: relative;
-  flex-shrink: 0;
+  flex: none;
   user-select: none;
+  -webkit-user-select: none;
+  overflow: visible;
 }
 
+/* Animated CRT Waveform Video Display */
 .cyberdeck-crt-wrap {
   position: absolute;
   top: 59px;
@@ -257,7 +230,7 @@
   height: 256px;
   border-radius: 186px;
   overflow: hidden;
-  z-index: 2;
+  z-index: 1;
 }
 
 .cyberdeck-crt-video {
@@ -265,8 +238,10 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  background-color: transparent;
 }
 
+/* Oscilloscope Bezel Overlay with Screws */
 .cyberdeck-right-bezel {
   position: absolute;
   top: 0;
@@ -278,28 +253,14 @@
   z-index: 3;
 }
 
-/* Toast Copied Notification */
-.toast-copied {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #1ad990;
-  color: #000000;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 9999px;
-  box-shadow: 0 10px 30px rgba(26, 217, 144, 0.4);
-  z-index: 1000;
-}
-
-/* Responsive scaling for mobile & narrow screens */
-@media (max-width: 900px) {
+/* Responsive scaling for narrower screens */
+@media (max-width: 922px) {
+  .cyberdeck-inflow-footer {
+    min-width: 100%;
+    overflow-x: hidden;
+  }
   .cyberdeck-body {
-    width: 900px;
-    transform: translateY(35px) scale(calc(100vw / 900px));
+    transform: scale(calc(100vw / 922px));
     transform-origin: bottom center;
   }
 }

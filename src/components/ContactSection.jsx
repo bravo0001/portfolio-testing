@@ -148,11 +148,11 @@ export default function ContactSection() {
   };
 
   return (
-    <footer id="contact" className="cyberdeck-inflow-footer" aria-label="Interactive Retro Console Footer">
-      {/* Background Ambient Glow */}
-      <div className="cyberdeck-ambient-glow" />
+    <footer id="contact" className="cyberdeck-inflow-footer" aria-label="Interactive Retro Console Footer" data-framer-name="Footer">
+      {/* Background Ambient Glow: Authentic Framer radial gradient */}
+      <div className="cyberdeck-ambient-glow" data-framer-name="Gradient" />
 
-      {/* Main Console Housing: Spans 100% horizontally, bottom portion bleeds past edge */}
+      {/* Main Console Housing: Exact 1:1 Framer layout */}
       <div className="cyberdeck-body-wrapper">
         <div className="cyberdeck-body">
           {/* Left Mechanical Keycap Matrix Panel */}
@@ -162,28 +162,20 @@ export default function ContactSection() {
               src="/assets/28_iT5qW38srTQkWIhfDBKFI7t0c.png"
               alt="Cyberdeck left panel housing"
               className="cyberdeck-bg-img"
+              draggable="false"
             />
 
-            {/* Top-Left Status Header */}
-            <div className="cyberdeck-status-bar">
-              {/* Inset Status Pill */}
-              <div className="status-pill">
-                <span className="status-pill-text">Available For Freelance</span>
-                <span className="status-pill-led" />
-              </div>
-
-              {/* TC Logo Badge */}
-              <div className="status-logo-badge" title="Thibaut Crépelle">
-                <svg className="tc-monogram-svg" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5.5 7.5h13M12 7.5v9M17 12a4.5 4.5 0 0 1-4.5 4.5 4.5 4.5 0 0 1-4.5-4.5"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+            {/* Top-Left Authentic Status Bar Video */}
+            <div className="cyberdeck-status-video-wrap">
+              <video
+                src="/assets/NTPQwD8OtB7Vx4FSKblgSSFTTL8.mp4"
+                loop
+                autoPlay
+                muted
+                playsInline
+                poster="/assets/30_LGXMGy1doqpGtJcj5oFKqcey8.png"
+                className="cyberdeck-status-video"
+              />
             </div>
 
             {/* 9 Mechanical Keys positioned with exact Framer coordinates */}
@@ -200,9 +192,37 @@ export default function ContactSection() {
                 onClick={() => handleKeyClick(k.id)}
                 aria-label={k.name}
               >
-                <img src={k.src} alt={k.alt} className="cyberdeck-keycap-img" />
+                <div className="cyberdeck-keycap-inner">
+                  <img src={k.src} alt={k.alt} className="cyberdeck-keycap-img" draggable="false" />
+                </div>
+
+                {/* Email Copied Tooltip right above @ key */}
+                {k.id === 'email' && (
+                  <AnimatePresence>
+                    {copied && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 5 }}
+                        className="email-copied-tooltip"
+                      >
+                        Email Copied!
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                )}
               </button>
             ))}
+
+            {/* Authentic Left Bottom Lip Bezel (covers bottom lip of depressed keys) */}
+            <div className="cyberdeck-left-bottom-lip">
+              <img
+                src="/assets/29_FhX5JDdQ5h9hI3ExcyblKv0GpY.png"
+                alt="Cyberdeck bottom lip"
+                className="cyberdeck-lip-img"
+                draggable="false"
+              />
+            </div>
           </div>
 
           {/* Center Speaker Grill: Flexes to fill entire space between left and right panels */}
@@ -211,6 +231,7 @@ export default function ContactSection() {
               src="/assets/40_SVsHDg5KkIO0FRxYhIesxoF83ps.png"
               alt="Cyberdeck middle speaker grill"
               className="cyberdeck-middle-img"
+              draggable="false"
             />
           </div>
 
@@ -233,24 +254,11 @@ export default function ContactSection() {
               src="/assets/41_S0ukfbm1gOMN44Z910yrv8PNXts.png"
               alt="Cyberdeck oscilloscope frame"
               className="cyberdeck-right-bezel"
+              draggable="false"
             />
           </div>
         </div>
       </div>
-
-      {/* Toast Notification when @ email key is pressed */}
-      <AnimatePresence>
-        {copied && (
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            className="toast-copied"
-          >
-            ✓ Email copied to clipboard!
-          </motion.div>
-        )}
-      </AnimatePresence>
     </footer>
   );
 }
