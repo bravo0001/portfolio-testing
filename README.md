@@ -52,10 +52,10 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/bravo0001/thibaut-portfolio.git
+git clone https://github.com/bravo0001/portfolio-testing.git
 
 # Navigate to project directory
-cd thibaut-portfolio
+cd portfolio-testing
 
 # Install dependencies
 npm install
