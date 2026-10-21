@@ -148,88 +148,90 @@ export default function ContactSection() {
   };
 
   return (
-    <footer className="cyberdeck-fixed-footer" aria-label="Interactive Retro Console Footer">
+    <footer id="contact" className="cyberdeck-inflow-footer" aria-label="Interactive Retro Console Footer">
       {/* Background Ambient Glow */}
       <div className="cyberdeck-ambient-glow" />
 
-      {/* Main Console Body: Spans 100% horizontally, bottom portion bleeds past viewport edge */}
-      <div className="cyberdeck-body">
-        {/* Left Mechanical Keycap Matrix Panel */}
-        <div className="cyberdeck-left">
-          {/* Authentic Panel Background Texture */}
-          <img
-            src="/assets/28_iT5qW38srTQkWIhfDBKFI7t0c.png"
-            alt="Cyberdeck left panel housing"
-            className="cyberdeck-bg-img"
-          />
+      {/* Main Console Housing: Spans 100% horizontally, bottom portion bleeds past edge */}
+      <div className="cyberdeck-body-wrapper">
+        <div className="cyberdeck-body">
+          {/* Left Mechanical Keycap Matrix Panel */}
+          <div className="cyberdeck-left">
+            {/* Authentic Panel Background Texture */}
+            <img
+              src="/assets/28_iT5qW38srTQkWIhfDBKFI7t0c.png"
+              alt="Cyberdeck left panel housing"
+              className="cyberdeck-bg-img"
+            />
 
-          {/* Status Bar Video: Available For Freelance */}
-          <div className="cyberdeck-status-video-wrap">
-            <video
-              src="/assets/NTPQwD8OtB7Vx4FSKblgSSFTTL8.mp4"
-              loop
-              autoPlay
-              muted
-              playsInline
-              className="cyberdeck-status-video"
+            {/* Status Bar Video: Available For Freelance */}
+            <div className="cyberdeck-status-video-wrap">
+              <video
+                src="/assets/NTPQwD8OtB7Vx4FSKblgSSFTTL8.mp4"
+                loop
+                autoPlay
+                muted
+                playsInline
+                className="cyberdeck-status-video"
+              />
+            </div>
+
+            {/* Status Bar Bezel Overlay */}
+            <img
+              src="/assets/29_FhX5JDdQ5h9hI3ExcyblKv0GpY.png"
+              alt="Status bar bezel"
+              className="cyberdeck-status-bezel"
+            />
+
+            {/* 9 Mechanical Keys positioned with exact Framer coordinates */}
+            {KEYS.map((k) => (
+              <button
+                key={k.id}
+                className={`cyberdeck-key ${activeKey === k.id ? 'pressed' : ''}`}
+                style={{
+                  top: `${k.top}px`,
+                  left: `${k.left}px`,
+                  width: `${k.width}px`,
+                  height: `${k.height}px`
+                }}
+                onClick={() => handleKeyClick(k.id)}
+                aria-label={k.name}
+              >
+                <img src={k.src} alt={k.alt} className="cyberdeck-keycap-img" />
+              </button>
+            ))}
+          </div>
+
+          {/* Center Speaker Grill: Flexes to fill entire space between left and right panels */}
+          <div className="cyberdeck-middle">
+            <img
+              src="/assets/40_SVsHDg5KkIO0FRxYhIesxoF83ps.png"
+              alt="Cyberdeck middle speaker grill"
+              className="cyberdeck-middle-img"
             />
           </div>
 
-          {/* Status Bar Bezel Overlay */}
-          <img
-            src="/assets/29_FhX5JDdQ5h9hI3ExcyblKv0GpY.png"
-            alt="Status bar bezel"
-            className="cyberdeck-status-bezel"
-          />
+          {/* Right Oscilloscope CRT Display Panel */}
+          <div className="cyberdeck-right">
+            {/* Animated CRT Waveform Video */}
+            <div className="cyberdeck-crt-wrap">
+              <video
+                src="/assets/h3ge2KKuYcGsAjrF289adsZsPN4.mp4"
+                loop
+                autoPlay
+                muted
+                playsInline
+                className="cyberdeck-crt-video"
+              />
+            </div>
 
-          {/* 9 Mechanical Keys positioned with exact Framer coordinates */}
-          {KEYS.map((k) => (
-            <button
-              key={k.id}
-              className={`cyberdeck-key ${activeKey === k.id ? 'pressed' : ''}`}
-              style={{
-                top: `${k.top}px`,
-                left: `${k.left}px`,
-                width: `${k.width}px`,
-                height: `${k.height}px`
-              }}
-              onClick={() => handleKeyClick(k.id)}
-              aria-label={k.name}
-            >
-              <img src={k.src} alt={k.alt} className="cyberdeck-keycap-img" />
-            </button>
-          ))}
-        </div>
-
-        {/* Center Speaker Grill: Flexes to fill entire space between left and right panels */}
-        <div className="cyberdeck-middle">
-          <img
-            src="/assets/40_SVsHDg5KkIO0FRxYhIesxoF83ps.png"
-            alt="Cyberdeck middle speaker grill"
-            className="cyberdeck-middle-img"
-          />
-        </div>
-
-        {/* Right Oscilloscope CRT Display Panel */}
-        <div className="cyberdeck-right">
-          {/* Animated CRT Waveform Video */}
-          <div className="cyberdeck-crt-wrap">
-            <video
-              src="/assets/h3ge2KKuYcGsAjrF289adsZsPN4.mp4"
-              loop
-              autoPlay
-              muted
-              playsInline
-              className="cyberdeck-crt-video"
+            {/* Oscilloscope Bezel Overlay with Screws */}
+            <img
+              src="/assets/41_S0ukfbm1gOMN44Z910yrv8PNXts.png"
+              alt="Cyberdeck oscilloscope frame"
+              className="cyberdeck-right-bezel"
             />
           </div>
-
-          {/* Oscilloscope Bezel Overlay with Screws */}
-          <img
-            src="/assets/41_S0ukfbm1gOMN44Z910yrv8PNXts.png"
-            alt="Cyberdeck oscilloscope frame"
-            className="cyberdeck-right-bezel"
-          />
         </div>
       </div>
 

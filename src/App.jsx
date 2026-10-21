@@ -48,17 +48,14 @@ export default function App() {
       {/* Sticky side nav */}
       <SideNav activeSection={activeSection} />
 
-      {/* Page sections */}
+      {/* Page scroll stream */}
       <main>
         <HeroSection />
         <WorksSection />
         <AboutSection />
-        {/* Bottom spacer so page content scrolls cleanly above fixed bottom console bar */}
-        <div id="contact" style={{ height: '360px', width: '100%', pointerEvents: 'none' }} />
+        {/* In-flow bottom console footer */}
+        <ContactSection />
       </main>
-
-      {/* Fixed bottom cyberdeck console bar */}
-      <ContactSection />
     </>
   );
 }
