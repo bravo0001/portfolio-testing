@@ -148,174 +148,104 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="contact-section">
-      <div className="contact-radial-glow" />
+    <footer className="cyberdeck-fixed-footer" aria-label="Interactive Retro Console Footer">
+      {/* Background Ambient Glow */}
+      <div className="cyberdeck-ambient-glow" />
 
-      <div className="contact-inner">
-        <h2 className="contact-main-title">Hit me up</h2>
+      {/* Main Console Body: Spans 100% horizontally, bottom portion bleeds past viewport edge */}
+      <div className="cyberdeck-body">
+        {/* Left Mechanical Keycap Matrix Panel */}
+        <div className="cyberdeck-left">
+          {/* Authentic Panel Background Texture */}
+          <img
+            src="/assets/28_iT5qW38srTQkWIhfDBKFI7t0c.png"
+            alt="Cyberdeck left panel housing"
+            className="cyberdeck-bg-img"
+          />
 
-        {/* ================= 1:1 AUTHENTIC CYBERDECK CONSOLE ================= */}
-        <div className="cyberdeck-wrapper">
-          <div className="cyberdeck-body">
-            {/* Left Keyboard Panel */}
-            <div className="cyberdeck-left">
-              {/* Authentic Panel Background Texture */}
-              <img
-                src="/assets/28_iT5qW38srTQkWIhfDBKFI7t0c.png"
-                alt="Cyberdeck left panel"
-                className="cyberdeck-bg-img"
-              />
-
-              {/* Status Bar Video: Available For Freelance */}
-              <div className="cyberdeck-status-video-wrap">
-                <video
-                  src="/assets/NTPQwD8OtB7Vx4FSKblgSSFTTL8.mp4"
-                  loop
-                  autoPlay
-                  muted
-                  playsInline
-                  className="cyberdeck-status-video"
-                />
-              </div>
-
-              {/* Status Bar Bezel Overlay */}
-              <img
-                src="/assets/29_FhX5JDdQ5h9hI3ExcyblKv0GpY.png"
-                alt="Status bar bezel"
-                className="cyberdeck-status-bezel"
-              />
-
-              {/* Exact 9 Keycaps positioned with Framer coordinates */}
-              {KEYS.map((k) => (
-                <button
-                  key={k.id}
-                  className={`cyberdeck-key ${activeKey === k.id ? 'pressed' : ''}`}
-                  style={{
-                    top: `${k.top}px`,
-                    left: `${k.left}px`,
-                    width: `${k.width}px`,
-                    height: `${k.height}px`
-                  }}
-                  onClick={() => handleKeyClick(k.id)}
-                  aria-label={k.name}
-                >
-                  <img src={k.src} alt={k.alt} className="cyberdeck-keycap-img" />
-                </button>
-              ))}
-            </div>
-
-            {/* Middle Speaker Grill with authentic fill texture */}
-            <div className="cyberdeck-middle">
-              <img
-                src="/assets/40_SVsHDg5KkIO0FRxYhIesxoF83ps.png"
-                alt="Cyberdeck middle speaker grill"
-                className="cyberdeck-middle-img"
-              />
-            </div>
-
-            {/* Right Oscilloscope Panel */}
-            <div className="cyberdeck-right">
-              {/* Animated CRT Waveform Video */}
-              <div className="cyberdeck-crt-wrap">
-                <video
-                  src="/assets/h3ge2KKuYcGsAjrF289adsZsPN4.mp4"
-                  loop
-                  autoPlay
-                  muted
-                  playsInline
-                  className="cyberdeck-crt-video"
-                />
-              </div>
-
-              {/* Oscilloscope Bezel Overlay */}
-              <img
-                src="/assets/41_S0ukfbm1gOMN44Z910yrv8PNXts.png"
-                alt="Cyberdeck oscilloscope frame"
-                className="cyberdeck-right-bezel"
-              />
-            </div>
+          {/* Status Bar Video: Available For Freelance */}
+          <div className="cyberdeck-status-video-wrap">
+            <video
+              src="/assets/NTPQwD8OtB7Vx4FSKblgSSFTTL8.mp4"
+              loop
+              autoPlay
+              muted
+              playsInline
+              className="cyberdeck-status-video"
+            />
           </div>
-        </div>
 
-        {/* ================= AUTHENTIC CTA & SOCIAL LINKS ================= */}
-        <div className="contact-text-block">
-          <p className="contact-lead-text">
-            Want to get in touch with me? The best way to reach out would be to email me!
-          </p>
+          {/* Status Bar Bezel Overlay */}
+          <img
+            src="/assets/29_FhX5JDdQ5h9hI3ExcyblKv0GpY.png"
+            alt="Status bar bezel"
+            className="cyberdeck-status-bezel"
+          />
 
-          <div className="contact-cta-row">
-            <button className="pixel-action-btn btn-white" onClick={copyEmail}>
-              <span className="btn-bracket bracket-left" />
-              <span className="btn-label">{copied ? 'Email Copied!' : 'Copy my E-mail'}</span>
-              <span className="btn-bracket bracket-right" />
+          {/* 9 Mechanical Keys positioned with exact Framer coordinates */}
+          {KEYS.map((k) => (
+            <button
+              key={k.id}
+              className={`cyberdeck-key ${activeKey === k.id ? 'pressed' : ''}`}
+              style={{
+                top: `${k.top}px`,
+                left: `${k.left}px`,
+                width: `${k.width}px`,
+                height: `${k.height}px`
+              }}
+              onClick={() => handleKeyClick(k.id)}
+              aria-label={k.name}
+            >
+              <img src={k.src} alt={k.alt} className="cyberdeck-keycap-img" />
             </button>
-          </div>
-
-          <p className="contact-sub-text">
-            However you can start the conversation through Twitter, it's the social where I'm the most active!
-          </p>
-
-          <div className="contact-social-row">
-            <a
-              href="https://twitter.com/tibolasticot"
-              target="_blank"
-              rel="noreferrer"
-              className="pixel-action-btn btn-dark"
-            >
-              <span className="btn-bracket bracket-left" />
-              <span className="btn-label">Twitter Profile</span>
-              <span className="pixel-arrow">→</span>
-              <span className="btn-bracket bracket-right" />
-            </a>
-          </div>
-
-          <p className="contact-quick-note">
-            (I've included Behance and Instagram, but I don't check my DMs as often)
-          </p>
-
-          <div className="contact-extra-socials">
-            <a
-              href="https://www.behance.net/tcrepelle7172"
-              target="_blank"
-              rel="noreferrer"
-              className="pixel-action-btn btn-bordered"
-            >
-              <span className="btn-bracket bracket-left" />
-              <span className="btn-label">Behance</span>
-              <span className="btn-bracket bracket-right" />
-            </a>
-            <a
-              href="https://www.instagram.com/tcrepelle/"
-              target="_blank"
-              rel="noreferrer"
-              className="pixel-action-btn btn-bordered"
-            >
-              <span className="btn-bracket bracket-left" />
-              <span className="btn-label">Instagram</span>
-              <span className="btn-bracket bracket-right" />
-            </a>
-          </div>
+          ))}
         </div>
 
-        {/* Toast Notification */}
-        <AnimatePresence>
-          {copied && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 15 }}
-              className="toast-copied"
-            >
-              ✓ Email copied to clipboard!
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Center Speaker Grill: Flexes to fill entire space between left and right panels */}
+        <div className="cyberdeck-middle">
+          <img
+            src="/assets/40_SVsHDg5KkIO0FRxYhIesxoF83ps.png"
+            alt="Cyberdeck middle speaker grill"
+            className="cyberdeck-middle-img"
+          />
+        </div>
 
-        {/* Footer */}
-        <footer className="portfolio-footer">
-          <p>© Thibaut Crépelle • Remote 3D Motion Design Freelance based in Lille, France</p>
-        </footer>
+        {/* Right Oscilloscope CRT Display Panel */}
+        <div className="cyberdeck-right">
+          {/* Animated CRT Waveform Video */}
+          <div className="cyberdeck-crt-wrap">
+            <video
+              src="/assets/h3ge2KKuYcGsAjrF289adsZsPN4.mp4"
+              loop
+              autoPlay
+              muted
+              playsInline
+              className="cyberdeck-crt-video"
+            />
+          </div>
+
+          {/* Oscilloscope Bezel Overlay with Screws */}
+          <img
+            src="/assets/41_S0ukfbm1gOMN44Z910yrv8PNXts.png"
+            alt="Cyberdeck oscilloscope frame"
+            className="cyberdeck-right-bezel"
+          />
+        </div>
       </div>
-    </section>
+
+      {/* Toast Notification when @ email key is pressed */}
+      <AnimatePresence>
+        {copied && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 15 }}
+            className="toast-copied"
+          >
+            ✓ Email copied to clipboard!
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </footer>
   );
 }

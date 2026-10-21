@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import './index.css';
 
 import CustomCursor from './components/CustomCursor';
@@ -53,8 +53,12 @@ export default function App() {
         <HeroSection />
         <WorksSection />
         <AboutSection />
-        <ContactSection />
+        {/* Bottom spacer so page content scrolls cleanly above fixed bottom console bar */}
+        <div id="contact" style={{ height: '360px', width: '100%', pointerEvents: 'none' }} />
       </main>
+
+      {/* Fixed bottom cyberdeck console bar */}
+      <ContactSection />
     </>
   );
 }
