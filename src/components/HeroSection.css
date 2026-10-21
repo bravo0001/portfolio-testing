@@ -1,0 +1,130 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 80px 20px 100px;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+.hero-radial-glow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 900px;
+  background: radial-gradient(ellipse at 50% 38%, rgba(26, 217, 144, 0.18) 0%, rgba(13, 50, 32, 0.18) 32%, rgba(0, 0, 0, 0) 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-lottie-container {
+  position: relative;
+  z-index: 2;
+  width: 480px;
+  height: 250px;
+  max-width: 90vw;
+  margin: 0 auto -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-tv-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.hero-shelf-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* CRT Screen overlay */
+.tv-screen-overlay {
+  position: absolute;
+  top: 18.2%;
+  left: 33.6%;
+  width: 32.7%;
+  height: 48%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: #000000;
+  cursor: grab;
+  z-index: 2;
+}
+
+.tv-screen-overlay:active {
+  cursor: grabbing;
+}
+
+.tv-screen-overlay pre {
+  margin: 0 !important;
+  font-family: monospace !important;
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+
+/* Transition text */
+.hero-transition-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 50px;
+  max-width: 980px;
+  padding: 0 20px;
+}
+
+.hero-bio-lead {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  line-height: 1.35;
+  color: #ffffff;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.hero-bio-sub {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  line-height: 1.35;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    padding-top: 60px;
+  }
+  .hero-lottie-container {
+    width: 340px;
+    height: 180px;
+  }
+  .hero-bio-lead, .hero-bio-sub {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-lottie-container {
+    width: 280px;
+    height: 150px;
+  }
+  .hero-bio-lead, .hero-bio-sub {
+    font-size: 18px;
+  }
+}
